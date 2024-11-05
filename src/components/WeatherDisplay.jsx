@@ -140,12 +140,7 @@ const formattedSunset = sunsetDate.toLocaleTimeString('fr-FR', { timeZone: 'Afri
           </div>
 
           {/* Carrousel de cartes météo */}
-          <div className="flex -z-10">
-           <Geocode/>
-           {/* <WeatherWidget/> */}
-           <AirPollution  />
-
-          </div>    
+        
         </div>
        
           <div className=" ps-10 lg:flex  flex-col flex items-center p-5  lg:flex-row gap-10 lg:gap-24">
@@ -179,7 +174,12 @@ const formattedSunset = sunsetDate.toLocaleTimeString('fr-FR', { timeZone: 'Afri
   </div>
 </div>
 </div>  
+<div className="flex -z-10">
+           <Geocode/>
+           {/* <WeatherWidget/> */}
+           <AirPollution  />
 
+          </div>    
      
          <CardCarousel cards={dataArray} />
       </div>
