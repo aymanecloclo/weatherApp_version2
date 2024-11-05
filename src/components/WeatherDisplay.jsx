@@ -22,6 +22,7 @@ import sunset from '../assets/images/sunset.png';
 import AirPollution from './AirPollution.jsx';
 import Geocode from './Geocode.jsx';
 import WeatherWidget from './WeatherWidget.jsx';
+import WeatherMap from './WeatherMap.jsx';
 const WeatherDisplay = ({ dataWeather }) => {
   if (!dataWeather) return <ConnectivityStatus />;
 
@@ -90,12 +91,20 @@ const formattedSunset = sunsetDate.toLocaleTimeString('fr-FR', { timeZone: 'Afri
   let feelslike=Math.floor(Number(main?.feels_like));
   
  
-  let styleComponent={
-        backgroundImage:`url(${sunny })`,
-        backgroundSize: 'cover',
-        backgroundPosition:'center',
-        height: '100vh !important',
-      }
+//   let styleComponent={
+//         // backgroundImage:`url(${sunny })`,
+//         background: rgb(111,198,153);
+// background: linear-gradient(0deg, rgba(111,198,153,1) 0%, rgba(67,157,235,1) 73%, rgba(71,115,224,1) 100%);
+//         // backgroundSize: 'cover',
+//         // backgroundPosition:'top',
+//         height: '100vh !important',
+//       }
+      const styleComponent = {
+        background: 'linear-gradient(0deg, rgba(111,198,153,1) 0%, rgba(67,157,235,1) 73%, rgba(71,115,224,1) 100%)',
+        height: '100vh', // Remove `!important`
+        width: '100%',   // Ajoutez cette ligne si vous voulez que le composant prenne toute la largeur
+    };
+    
   return (
     <div
       className="flex pt-24 text-slate-50/85 font-extrabold min-h-screen px-0"
@@ -115,8 +124,11 @@ const formattedSunset = sunsetDate.toLocaleTimeString('fr-FR', { timeZone: 'Afri
           <p className="date font-medium pe-10 sm:text-2xl text-nowrap text-lg xs:px-5 ">{formattedDate}</p>
         </div>
          {/* current weather */}
-        <div className="flex-col lg:flex lg:flex-row lg:justify-between lg:items-center lg:pe-32 lg:ps-10 mt-5">
-          <div className="flex gap-10  bg-gradient-to-r from-cyan-400/85 to-blue-400/85   h-[165px] mx-2 py-5 rounded-lg md:w-[600px] -shadow-xl xs:flex ">
+        <div className="flex-col lg:flex lg:flex-row  lg:pe-32 lg:ps-10 mt-5">
+          <div className="flex gap-10  bg-gradient-to-r from-cyan-400/45 to-blue-400/85   h-[165px] mx-2 py-5 rounded-lg md:w-[600px] -shadow-xl xs:flex ">
+            
+            <div className="flex-col ">
+            <h6 className='text-md ps-5'>Current weather</h6>
             <div className="flex items-center">
               <img
                 src={`https://openweathermap.org/img/wn/${weather[0]?.icon}@2x.png`}
@@ -125,11 +137,12 @@ const formattedSunset = sunsetDate.toLocaleTimeString('fr-FR', { timeZone: 'Afri
               />
               <h1 className="text-6xl xxs:text-4xl font-extralight relative">
                 {`${Math.floor(Number(main?.feels_like))}`}
-                <span className="absolute -top-2 text-sm">°C</span>
+                <span className="absolute -top-2 text-xl font-medium">°C</span>
               </h1>
+              </div>
             </div>
 
-            <div className="flex flex-col font-semibold xs:items-center gap-2 ">
+            <div className="flex flex-col font-medium xs:items-center gap-2 ">
               <span className="capitalize text-xl    ">{weather[0]?.description}</span>
               <span className="text-sm md:text-xl">{`Feels like: ${main?.feels_like}°C`}</span>
               <div className="flex text-sm flex-wrap gap-2 md:text-xl">
@@ -139,7 +152,7 @@ const formattedSunset = sunsetDate.toLocaleTimeString('fr-FR', { timeZone: 'Afri
             </div>
           </div>
 
-          {/* Carrousel de cartes météo */}
+          <WeatherMap city="Rabat" />
         
         </div>
        

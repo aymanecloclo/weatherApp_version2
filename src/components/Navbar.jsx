@@ -34,7 +34,7 @@ const Navbar = ({ src}) => {
   ];
 
   return (
-    <div className='flex items-center gap-5 mx-0 w-full md:max-h-[9%] bg-sky-400/95 max-h-16 fixed top-0 left-0 overflow-hidden md:pe-20 z-50'>
+    <div className='flex items-center gap-5 mx-0 w-full md:max-h-[9%] max-h-16 fixed top-0 left-0 overflow-hidden md:pe-20 z-50'>
       {/* Logo */}
  
         <div className="logo w-full px-5 md:hidden lg:block">

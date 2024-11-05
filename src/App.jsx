@@ -44,7 +44,7 @@ function MainContent() {
         <WeatherDisplay dataWeather={result} />
       </Suspense>
       <Suspense>
-        <WeatherMap city="Rabat" />
+       
       </Suspense>
      <WeatherForecast/>
       
