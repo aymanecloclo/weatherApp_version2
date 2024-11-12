@@ -3,7 +3,6 @@ import Search from './Search';
 import CloseBtn from './CloseBtn';
 import { CiLocationOn } from "react-icons/ci";
 import { useWeather } from './ProviderWeather';
-
 const SearchBox = () => {
   const [city, setCity] = useState('');
   const [filteredCities, setFilteredCities] = useState([]);

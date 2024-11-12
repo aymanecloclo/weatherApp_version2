@@ -5,11 +5,16 @@ import logo_app from './assets/images/logoApp.png';
 import { useWeather } from './components/ProviderWeather.jsx';
 import ProviderWeather from './components/ProviderWeather.jsx';
 import WeatherMap from './components/WeatherMap.jsx';
+<<<<<<< HEAD
 import Geocode from './components/Geocode.jsx';
 import WeatherForecast from './components/WeatherForecast.JSX';
 import AirPollution from './components/AirPollution.jsx';
 import CardCarousel from './components/CardCarousel.jsx';
 
+=======
+
+import WeatherForecast from './components/WeatherForecast.JSX';
+>>>>>>> c7f0981ba4a5967d555d2011869358ae39ae217a
 // Lazy load the components
 const WeatherDisplay = lazy(() => import('./components/WeatherDisplay'));
 const SearchBox = lazy(() => import('./components/SearchBox.jsx'));
@@ -17,6 +22,7 @@ const Footer = lazy(() => import('./components/Footer'));
 const ContactUs = lazy(() => import('./components/ContactUs.jsx'));
 
 function App() {
+<<<<<<< HEAD
   // useEffect(() => {
   //   document.body.style.backgroundColor = 'linear-gradient(0deg, rgba(111, 198, 153, 1) 0%, rgba(67, 157, 235, 1) 73%, rgba(71, 115, 224, 1) 100%)!important '; // Replace with your color
   //   return () => {
@@ -24,6 +30,9 @@ function App() {
   //   };
   // }, []);
 
+=======
+ 
+>>>>>>> c7f0981ba4a5967d555d2011869358ae39ae217a
   return (
     <ProviderWeather>
       <MainContent />
@@ -43,7 +52,6 @@ function MainContent() {
 
   return (
     <>
-
       <Navbar src={logo_app} onClickSearch={handleChange} />
       {content && (
         <Suspense fallback={<div>Loading Search Box...</div>}>
