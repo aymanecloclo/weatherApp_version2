@@ -152,7 +152,7 @@ const formattedSunset = sunsetDate.toLocaleTimeString('fr-FR', { timeZone: 'Afri
               </div>
             </div>
           </div>
-   <div className=" ps-10 lg:flex  flex-col flex items-center p-5  lg:flex-row gap-10 lg:gap-24">
+               <div className=" ps-10 lg:flex  flex-col flex items-center p-5  lg:flex-row gap-10 lg:gap-24">
 
                <div
   className="duration-300 font-mono text-white group cursor-pointer relative overflow-hidden bg-gradient-to-r from-cyan-400/75 to-blue-400 w-28 h-48  rounded-3xl p-4 hover:w-48 hover:bg-sky-400/95 "
@@ -181,7 +181,7 @@ const formattedSunset = sunsetDate.toLocaleTimeString('fr-FR', { timeZone: 'Afri
     <p className="text-xl">{formattedSunrise}</p>
     
   </div>
-</div>
+              </div>
            </div>  
           </div>
           <WeatherMap city="Rabat" />
