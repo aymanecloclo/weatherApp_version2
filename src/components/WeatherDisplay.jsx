@@ -184,8 +184,12 @@ const formattedSunset = sunsetDate.toLocaleTimeString('fr-FR', { timeZone: 'Afri
               </div>
            </div>  
           </div>
+<<<<<<< HEAD
 
           <WeatherMap city="Rabat"  />
+=======
+          <WeatherMap city="Rabat" />
+>>>>>>> 4d2ebaf3254e7e0d3ab2ed6c690776506f70bdee
         
         </div>
        
