@@ -38,7 +38,7 @@ const AirPollution = () => {
                     </h3>
                     <FaSmog className="text-blue-600 text-3xl" />
                 </div>
-                <h4 className="text-xl font-semibold mb-4 text-blue-800">Polluants Principaux:</h4>
+                <h4 className="text-xl font-semibold mb-4 text-blue-800">Poolluants Principaux:</h4>
                 <ul className="list-disc pl-5 space-y-2">
                     {pollutionData ? (
                         Object.entries(pollutionData.list[0].components).map(([key, value]) => (
