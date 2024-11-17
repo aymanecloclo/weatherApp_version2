@@ -57,11 +57,7 @@ function MainContent() {
       </Suspense>
   
                    <div
-<<<<<<< HEAD
              className="flex flex-col md:flex-row md:ps-24 md:gap-14  items-center p-5">
-=======
-             className="flex flex-col md:flex-row md:ps-24 md:gap-14  items-center ">
->>>>>>> 516bbe4c3d874313e0d566007e029229aa328407
 
                <Geocode/>
               {/* <WeatherWidget/> */}
