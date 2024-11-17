@@ -48,11 +48,7 @@ const WeatherMap = ({ city }) => {
     }, [city, apiKey]);
 
     return (
-<<<<<<< HEAD
         <div className="md:w-8/12 w-full  md:mx-auto bg-white shadow-2xl rounded-3xl p-6 pt-0 md:h-[%30]  " >
-=======
-        <div className="md:w-8/12 w-full  md:mx-auto bg-white shadow-lg rounded-lg p-6 pt-0 h-[%30] " >
->>>>>>> 516bbe4c3d874313e0d566007e029229aa328407
         <h2 className="text-2xl font-bold text-gray-800 mb-4">Carte radar pour {city}</h2>
         <div ref={mapRef} className="h-80 rounded-lg overflow-hidden mb-4">
             {/* Ici, votre carte sera intégrée */}
