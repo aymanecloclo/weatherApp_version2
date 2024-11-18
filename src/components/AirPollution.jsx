@@ -12,7 +12,7 @@ const AirPollution = () => {
     useEffect(() => {
         const fetchAirPollutionData = async () => {
             try {
-                const response = await fetch(`http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${apiKey}`);
+                const response = await fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${apiKey}`);
                 const data = await response.json();
                 setPollutionData(data);
             } catch (error) {
@@ -24,7 +24,7 @@ const AirPollution = () => {
     }, [lat, lon, apiKey]);
 
     return (
-        <div className=" w-full flex justify-center  md:min-h-screen py-10">
+        <div className=" w-full flex justify-center md:justify-start md:pt-0 py-10">
             <div className="bg-white shadow-2xl rounded-3xl p-8 max-w-lg w-full transition-transform duration-300 transform hover:scale-105">
                 <h2 className="text-4xl font-extrabold text-center text-blue-800 mb-6">
                     Pollution de l'Air

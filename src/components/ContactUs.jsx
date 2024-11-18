@@ -3,8 +3,8 @@ const ContactUs=()=>{
 
     return(
         <>
-        <div className=" flex  p-5 justify-center">
-        <div class="  bg-white rounded-3xl grid sm:grid-cols-2 items-start gap-16 p-4  md:pt-20 mx-auto  font-[sans-serif] md:w-7/12  z-50  ">
+        <div className=" flex  p-5 justify-center ">
+        <div class=" px-10 bg-white rounded-3xl grid sm:grid-cols-2 items-start gap-16 p-4  md:pt-20 mx-auto  font-[sans-serif] md:w-7/12  z-50  ">
             <div>
                 <h1 class="text-sky-400  text-3xl font-extrabold">Contact Us</h1>
                 <p class="text-sm text-gray-500 mt-4">Have some big idea or brand to develop and need help? Then reach out we'd love to hear about your project  and provide help.</p>
@@ -69,13 +69,13 @@ const ContactUs=()=>{
 
             <form class="ml-auto space-y-4">
                 <input type='text' placeholder='Name'
-                    class="w-full rounded-md py-3 px-4 bg-gray-100 text-gray-800 text-sm outline-blue-500 focus:bg-transparent" />
+                    class="w-full rounded-md py-3 px-4 bg-gray-100 text-gray-800 text-sm outline-sky-400  focus:bg-transparent" />
                 <input type='email' placeholder='Email'
-                    class="w-full rounded-md py-3 px-4 bg-gray-100 text-gray-800 text-sm outline-blue-500 focus:bg-transparent" />
+                    class="w-full rounded-md py-3 px-4 bg-gray-100 text-gray-800 text-sm outline-sky-400 focus:bg-transparent" />
                 <input type='text' placeholder='Subject'
-                    class="w-full rounded-md py-3 px-4 bg-gray-100 text-gray-800 text-sm outline-blue-500 focus:bg-transparent" />
+                    class="w-full rounded-md py-3 px-4 bg-gray-100 text-gray-800 text-sm outline-sky-400 focus:bg-transparent" />
                 <textarea placeholder='Message' rows="6"
-                    class="w-full rounded-md px-4 bg-gray-100 text-gray-800 text-sm pt-3 outline-blue-500 focus:bg-transparent"></textarea>
+                    class="w-full rounded-md px-4 bg-gray-100 text-gray-800 text-sm pt-3 outline-sky-400 focus:bg-transparent"></textarea>
                 <button type='button'
                     class="text-white bg-sky-400/95 hover:bg-blue-400/90 tracking-wide rounded-md text-sm px-4 py-3 w-full !mt-6">Send</button>
             </form>

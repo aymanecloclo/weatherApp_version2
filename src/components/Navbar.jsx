@@ -68,7 +68,7 @@ const Navbar = ({ src}) => {
         </div>
 
         {/* Mobile Navigation Menu */}
-        <ul ref={menuRef} className={nav ? 'fixed md:hidden left-0 top-0 w-[60%] h-full border-r border-r-gray-900 bg-sky-400 ease-in-out duration-500 z-10 shadow-black shadow-xl' : 'ease-in-out w-[60%] duration-50 top-0 bottom-0 left-[-100%] relative'}>
+        <ul ref={menuRef} className={nav ? 'fixed md:hidden left-0 top-0 w-[60%] h-full  bg-gradient-to-r from-cyan-400 to-blue-400  ease-in-out duration-500 z-10 shadow-black shadow-xl' : 'ease-in-out w-[60%] duration-50 top-0 bottom-0 left-[-100%] relative'}>
           <li key='closeBtn' className='relative'>
             <AiOutlineClose onClick={handleNav} size={25} className='text-slate-100 absolute top-1 right-2 cursor-pointer' />
           </li>

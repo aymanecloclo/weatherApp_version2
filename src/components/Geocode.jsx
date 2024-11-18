@@ -20,7 +20,7 @@ const Geocode = () => {
         setError('');
         try {
             const response = await fetch(
-                `http://api.openweathermap.org/geo/1.0/direct?q=${city},${state},${country}&limit=1&appid=${apiKey}`
+                `https://api.openweathermap.org/geo/1.0/direct?q=${city},${state},${country}&limit=1&appid=${apiKey}`
             );
             const data = await response.json();
 
@@ -37,7 +37,7 @@ const Geocode = () => {
     };
 
     return (
-        <div className="flex justify-center md:min-h-screen py-10">
+        <div className="flex justify-center  py-10 md:pt-0">
             <div className="bg-white shadow-2xl rounded-3xl p-8 max-w-lg w-full transition-transform duration-300 transform hover:scale-105">
                 <h2 className="text-4xl font-extrabold text-center text-blue-800 mb-6">
                     Recherche de Géocodage

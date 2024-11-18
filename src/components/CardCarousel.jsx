@@ -69,8 +69,8 @@ const CardCarousel = ({ cards }) => {
 
 
   return (
-    <div className="w-full relative md:px-5  my-24 ">
-      <h2 className="text-center text-3xl font-bold mb-8 text-sky-500">Detailed Weather Conditions</h2>
+    <div className="w-full relative md:px-5  my-24  ">
+      <h2 className="text-center text-3xl font-bold mb-8 text-white">Detailed Weather Conditions</h2>
       <Slider {...settings}>
         {cards.map((item, index) => (
           <div 

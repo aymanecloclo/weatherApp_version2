@@ -23,6 +23,7 @@ import AirPollution from './AirPollution.jsx';
 import Geocode from './Geocode.jsx';
 import WeatherWidget from './WeatherWidget.jsx';
 import WeatherMap from './WeatherMap.jsx';
+
 const WeatherDisplay = ({ dataWeather }) => {
   if (!dataWeather) return <ConnectivityStatus />;
 
@@ -31,6 +32,7 @@ const WeatherDisplay = ({ dataWeather }) => {
   const formattedDate = currentDate.toLocaleString('en-US', options).replace(',', '');
 
   const { name, sys, main, wind, visibility, weather, clouds } = dataWeather;
+  console.log(name)
  // Convertir les timestamps de lever et coucher de soleil en objets Date
   const sunriseDate = new Date(sys.sunrise * 1000); // Multiplier par 1000 pour convertir en millisecondes
   const sunsetDate = new Date(sys.sunset * 1000);
@@ -107,7 +109,7 @@ const formattedSunset = sunsetDate.toLocaleTimeString('fr-FR', { timeZone: 'Afri
     
   return (
     <div
-      className="flex pt-24 text-slate-50/85 font-extrabold min-h-screen px-0"
+      className="flex pt-24 text-slate-50/85 font-extrabold px-0"
       id="weatherBox mx-0 relative"
       // style={styleComponent}
     >
@@ -164,7 +166,7 @@ const formattedSunset = sunsetDate.toLocaleTimeString('fr-FR', { timeZone: 'Afri
    
   </div>
   <div className="absolute duration-300 -left-32 mt-2 group-hover:left-10 flex items-center py-5">
-    <p className="text-xl">{formattedSunrise}</p>
+    <p className="md:text-xl text-md flex justify-center">{formattedSunrise}</p>
     
   </div>
                </div>
@@ -178,21 +180,21 @@ const formattedSunset = sunsetDate.toLocaleTimeString('fr-FR', { timeZone: 'Afri
    
   </div>
   <div className="absolute duration-300 -left-32 mt-2 group-hover:left-10 flex items-center py-5">
-    <p className="text-xl">{formattedSunrise}</p>
+    <p className="md:text-xl text-md flex justify-center">{formattedSunrise}</p>
     
   </div>
               </div>
            </div>  
           </div>
-           <div className=" flex items-center p-5">
+           <div className="w-full flex items-center md:pt-0  p-5">
 
-           <WeatherMap city="Rabat"  />
+           <WeatherMap city={name}  />
            </div>
-         
+      
         
         </div>
        
-     
+        <CardCarousel cards={dataArray}/> 
    
       </div>
     </div>

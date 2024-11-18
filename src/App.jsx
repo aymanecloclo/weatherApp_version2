@@ -8,7 +8,6 @@ import WeatherMap from './components/WeatherMap.jsx';
 import Geocode from './components/Geocode.jsx';
 import WeatherForecast from './components/WeatherForecast.JSX';
 import AirPollution from './components/AirPollution.jsx';
-import CardCarousel from './components/CardCarousel.jsx';
 
 // Lazy load the components
 const WeatherDisplay = lazy(() => import('./components/WeatherDisplay'));
@@ -57,7 +56,7 @@ function MainContent() {
       </Suspense>
   
                    <div
-             className="flex flex-col md:flex-row md:ps-24 md:gap-14  items-center p-5">
+             className="flex flex-col md:flex-row md:ps-24 md:gap-14  items-center md:items-start p-5">
 
                <Geocode/>
               {/* <WeatherWidget/> */}
@@ -65,6 +64,7 @@ function MainContent() {
                 
               {/* <CardCarousel cards={dataArray} /> */}
           </div>    
+ 
       <Suspense fallback={<div>Loading Contact Us...</div>}>
         <ContactUs />
       </Suspense>

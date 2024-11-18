@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig({
-  base: '/weatherApp/', // Change ce chemin selon le nom de ton dépôt
+  base: '/weatherApp_version2/', // Change ce chemin selon le nom de ton dépôt
   plugins: [react()], // Plugin pour utiliser React
   server: {
     port: 3000, // Port sur lequel le serveur de développement va tourner
