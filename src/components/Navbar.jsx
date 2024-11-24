@@ -29,8 +29,8 @@ const Navbar = ({ src}) => {
   const navItems = [
     { id: 1, text: 'Home', path: '/' },
     { id: 2, text: 'Weather Conditions', path: '/forecast' },
-    { id: 3, text: 'Graphiques', path: '/graph' },
-    { id: 5, text: 'Contact', path: '/contact' },
+    { id: 3, text: 'Géocodage', path: '/graph' },
+    { id: 5, text: 'Contact us', path: '/contact' },
   ];
 
   return (

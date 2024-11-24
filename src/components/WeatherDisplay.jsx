@@ -103,7 +103,7 @@ const formattedSunset = sunsetDate.toLocaleTimeString('fr-FR', { timeZone: 'Afri
       {/* Overlay for contrast */}
       <div className="bg-black/5 absolute top-0 left-0 w-full h-48"></div>
 
-      <div className="z-20 w-full md:flex flex-col m-0 p-0 ">
+      <div className="z-20 w-full md:flex md:justify-center flex-col  m-0 p-0 ">
         <div className="flex sm:flex-row xs:flex-col my-2">
           {/* City Name and Country */}
           <h3 className='flex items-center gap-0.5 xs:px-2 px-10 text-2xl'>
@@ -114,8 +114,8 @@ const formattedSunset = sunsetDate.toLocaleTimeString('fr-FR', { timeZone: 'Afri
         </div>
          {/* current weather */}
         <div className="flex-col lg:flex lg:flex-row  lg:px-8  mt-5">
-          <div className="flex flex-col">
-             <div className=" flex gap-10  bg-gradient-to-br from-cyan-400/75 via-sky-500   h-[165px] mx-2 py-5 rounded-lg md:w-[600px] -shadow-xl xs:flex transition-transform duration-300 transform hover:scale-105 ">
+          <div className="flex flex-col md:items-center">
+             <div className=" flex gap-10   bg-gradient-to-br from-cyan-400/75 via-sky-500   h-[165px] mx-2 py-5 rounded-lg md:w-[600px] -shadow-xl xs:flex transition-transform duration-300 transform hover:scale-105 ">
             
             <div className="flex-col ">
             <h6 className='text-md ps-5 '>Current weather</h6>

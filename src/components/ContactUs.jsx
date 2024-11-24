@@ -4,7 +4,7 @@ const ContactUs=()=>{
     return(
         <>
         <div className=" flex  p-5 justify-center ">
-        <div class=" px-20 bg-white rounded-3xl grid sm:grid-cols-2 items-start gap-16 p-4  md:pt-20 mx-auto  font-[sans-serif] md:w-7/12  z-50 transition-transform duration-300 transform hover:scale-105 ">
+        <div class=" px-20 bg-white rounded-3xl grid sm:grid-cols-2 items-start gap-16 p-4  md:pt-20 mx-auto  font-[sans-serif] lg:w-7/12  z-50 transition-transform duration-300 transform hover:scale-105 ">
             <div>
                 <h1 class="text-sky-400  text-3xl font-extrabold">Contact Us</h1>
                 <p class="text-sm text-gray-500 mt-4">Have some big idea or brand to develop and need help? Then reach out we'd love to hear about your project  and provide help.</p>

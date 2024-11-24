@@ -24,8 +24,8 @@ const AirPollution = () => {
     }, [lat, lon, apiKey]);
 
     return (
-        <div className=" w-full md:w-5/12  md:pt-0 py-10">
-            <div className="bg-white md:h-[520px] shadow-2xl rounded-3xl p-8 max-w-lg w-full transition-transform duration-300 transform hover:scale-105">
+        <div className=" w-full    md:pt-0 py-10">
+            <div className="bg-white md:h-[520px] shadow-2xl rounded-3xl p-8  w-full transition-transform duration-300 transform hover:scale-105">
                 <h2 className="text-4xl font-extrabold text-center text-blue-800 mb-6">
                     Pollution de l'Air
                 </h2>

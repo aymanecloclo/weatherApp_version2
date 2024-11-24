@@ -65,10 +65,10 @@ function MainContent() {
       </Suspense>
   
                    <div
-             className=" w-full flex flex-col md:flex-row md:ps-10 md:gap-2  items-center md:items-start ">
+             className=" w-full grid  lg:grid-cols-3 place-content-center px-5 md:gap-2  ">
               <AirPollution  />
               <Geocode/>
-            <div className=" w-3/12 ps-10 lg:flex  flex-col flex items-center p-5  gap-10 md:gap-10">
+            <div className=" ps-10 lg:flex   flex-col flex items-center p-5  gap-10 md:gap-10 sm:flex-wra">
               
              <SunShow image={sunrise} />
               <SunShow image={sunset} />

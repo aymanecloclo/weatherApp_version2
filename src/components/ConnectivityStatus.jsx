@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useState, useEffect, Suspense } from 'react';
+import { useState, useEffect } from 'react';
 
 // ConnectivityStatus component to handle the connectivity status
 const ConnectivityStatus = () => {
@@ -38,7 +38,7 @@ const ConnectivityStatus = () => {
           animate={{ scale: 1 }}
           transition={{ duration: 0.5 }}
         >
-          You are Online 🎉
+          <span className=" loading loading-dots loading-lg"></span>
         </motion.p>
       ) : (
         <motion.p
@@ -70,11 +70,11 @@ const Loader = () => (
   </motion.div>
 );
 
-// App component that uses Suspense to lazy load ConnectivityStatus
+// App component that shows ConnectivityStatus directly
 const App = () => (
-  <Suspense fallback={<Loader />}>
+  <div>
     <ConnectivityStatus />
-  </Suspense>
+  </div>
 );
 
 export default App;

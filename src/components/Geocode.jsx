@@ -45,15 +45,14 @@ const Geocode = () => {
                 <div className="flex flex-col space-y-4">
                 <div className="flex items-center border border-gray-300 dark:border-gray-600 rounded p-2 bg-white dark:bg-gray-800">
             <FaMapMarkerAlt className="text-blue-600 dark:text-blue-400 mr-2" />
-              <input
-               type="text"
-                    placeholder="Ville"
-                value={city}
-                 onChange={(e) => {
-                setCity(e.target.value);
-                   }}
-                className="w-full outline-none bg-transparent text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
-                 />
+          <input
+  type="text"
+  placeholder="Ville"
+  value={city}
+  onChange={(e) => setCity(e.target.value)}
+  className="w-full outline-none bg-transparent text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
+/>
+
             </div>
 
                     <div className="flex items-center border border-gray-300 rounded p-2">
