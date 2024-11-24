@@ -1,6 +1,40 @@
+import { useState } from "react";
+  import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 const ContactUs=()=>{
+    const [contact,setContact]=useState({
+        name:'',
+        email:'',
+        subject:'',
+        message:'',
+    });
+      const [erros,setError]=useState({});
+    
+     const ValidateFom=()=>{
+        if(!contact.name.trim()  || !contact.email.trim() ||  !contact.subject.trim() || !contact.message.trim() ){
+            toast.error('Veuillez remplir tous les champs.');
+        }else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact.email)){
+                 toast.error('Veuillez saisir une adresse email valide.');
+        }else{
+                 return true ;
+        }
+        
+
+     }
 
 
+    const handleChangeInput=(e)=>{
+        const {name , value}=e.target;
+        setContact({...contact,[name]:value});
+    };
+       const handleSubmit= async (e)=>{
+          e.preventDefault();
+            if(ValidateFom()){
+                toast.success('Merci ! Votre message a bien été envoyé.');
+            }
+    }
+    console.log(contact);
+   
     return(
         <>
         <div className=" flex  p-5 justify-center ">
@@ -68,15 +102,15 @@ const ContactUs=()=>{
             </div>
 
             <form class="ml-auto space-y-4 ">
-                <input type='text' placeholder='Name'
+                <input type='text' onChange={(e)=>handleChangeInput(e)} name='name' placeholder='Name'
                     class="w-full rounded-md py-3 px-4 bg-gray-100 text-gray-800 text-sm outline-sky-400  focus:bg-transparent" />
-                <input type='email' placeholder='Email'
+                <input type='email' name="email" onChange={(e)=>handleChangeInput(e)}  placeholder='Email'
                     class="w-full rounded-md py-3 px-4 bg-gray-100 text-gray-800 text-sm outline-sky-400 focus:bg-transparent" />
-                <input type='text' placeholder='Subject'
+                <input type='text' name="subject" onChange={(e)=>handleChangeInput(e)}  placeholder='Subject'
                     class="w-full rounded-md py-3 px-4 bg-gray-100 text-gray-800 text-sm outline-sky-400 focus:bg-transparent" />
-                <textarea placeholder='Message' rows="6"
+                <textarea name="message" onChange={(e)=>handleChangeInput(e)} placeholder='Message' rows="6"
                     class="w-full rounded-md px-4 bg-gray-100 text-gray-800 text-sm pt-3 outline-sky-400 focus:bg-transparent"></textarea>
-                <button type='button'
+                <button onClick={(e)=>handleSubmit(e)} type='button'
                     class="text-white bg-sky-400/95 hover:bg-blue-400/90 tracking-wide rounded-md text-sm px-4 py-3 w-full !mt-6">Send</button>
             </form>
         </div>

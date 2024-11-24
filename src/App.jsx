@@ -1,4 +1,5 @@
 import './App.css'; 
+  import { ToastContainer, toast } from 'react-toastify';
 import React, {useState,useEffect, Suspense, lazy } from "react";
 import Navbar from './components/Navbar';
 import logo_app from './assets/images/logoApp.png';
@@ -63,7 +64,7 @@ function MainContent() {
       <Suspense>
        
       </Suspense>
-  
+  <ToastContainer/>
                    <div
              className=" w-full grid  lg:grid-cols-3 place-content-center px-5 md:gap-2  lg:gap-12 lg:px-12 ">
               <AirPollution  />
