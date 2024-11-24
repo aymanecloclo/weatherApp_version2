@@ -52,8 +52,7 @@ const ProviderWeather = ({ children }) => {
         (position) => {
           const lat = position.coords.latitude;
           const lon = position.coords.longitude;
-          console.log('Updated Latitude:', lat);
-          console.log('Updated Longitude:', lon);
+   
           fetchData(lat, lon, null);
         },
         (error) => {

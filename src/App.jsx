@@ -48,7 +48,7 @@ function MainContent() {
     content,
     catchedValue,
   } = useWeather() || {};
-
+      
   return (
     <>
       <Navbar src={logo_app} onClickSearch={handleChange} />
@@ -65,13 +65,13 @@ function MainContent() {
       </Suspense>
   
                    <div
-             className=" w-full grid  lg:grid-cols-3 place-content-center px-5 md:gap-2  ">
+             className=" w-full grid  lg:grid-cols-3 place-content-center px-5 md:gap-2  lg:gap-12 lg:px-12 ">
               <AirPollution  />
               <Geocode/>
             <div className=" ps-10 lg:flex   flex-col flex items-center p-5  gap-10 md:gap-10 sm:flex-wra">
               
-             <SunShow image={sunrise} />
-              <SunShow image={sunset} />
+             <SunShow image={sunrise} title='Sunset' />
+              <SunShow image={sunset}   title='Sunrie'/>
              </div>
                
               {/* <WeatherWidget/> */}
