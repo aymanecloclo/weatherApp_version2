@@ -1,5 +1,5 @@
 import './App.css'; 
-import React, { Suspense, lazy } from "react";
+import React, {useState,useEffect, Suspense, lazy } from "react";
 import Navbar from './components/Navbar';
 import logo_app from './assets/images/logoApp.png';
 import { useWeather } from './components/ProviderWeather.jsx';
@@ -18,12 +18,19 @@ const Footer = lazy(() => import('./components/Footer'));
 const ContactUs = lazy(() => import('./components/ContactUs.jsx'));
 
 function App() {
-  // useEffect(() => {
-  //   document.body.style.backgroundColor = 'linear-gradient(0deg, rgba(111, 198, 153, 1) 0%, rgba(67, 157, 235, 1) 73%, rgba(71, 115, 224, 1) 100%)!important '; // Replace with your color
-  //   return () => {
-  //     document.body.style.backgroundColor = ''; // Reset on unmount if needed
-  //   };
-  // }, []);
+  const [darkMode, setDarkMode] = useState(false);
+  useEffect(() => {
+    const userTheme = localStorage.getItem('theme');
+    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (userTheme === 'dark' || (!userTheme && systemTheme)) {
+      setDarkMode(true);
+      document.documentElement.classList.add('dark');
+    } else {
+      setDarkMode(false);
+      document.documentElement.classList.remove('dark');
+    }
+  }, []);
 
   return (
     <ProviderWeather>
@@ -46,11 +53,11 @@ function MainContent() {
     <>
       <Navbar src={logo_app} onClickSearch={handleChange} />
       {content && (
-        <Suspense fallback={<div>Loading Search Box...</div>}>
+        <Suspense fallback={<span className=" loading loading-dots loading-lg"></span>}>
           <SearchBox catchValue={catchValue} content={content} onChange={handleChange} />
         </Suspense>
       )}
-      <Suspense fallback={<div>Loading Weather Display...</div>}>
+      <Suspense fallback={<span className="loading loading-dots loading-lg"></span>}>
         <WeatherDisplay dataWeather={result} />
       </Suspense>
       <Suspense>
@@ -63,8 +70,8 @@ function MainContent() {
               <Geocode/>
             <div className=" w-3/12 ps-10 lg:flex  flex-col flex items-center p-5  gap-10 md:gap-10">
               
-             <SunShow image={sunrise} time='5h'/>
-              <SunShow image={sunset} time='5h'/>
+             <SunShow image={sunrise} />
+              <SunShow image={sunset} />
              </div>
                
               {/* <WeatherWidget/> */}
@@ -73,10 +80,10 @@ function MainContent() {
               {/* <CardCarousel cards={dataArray} /> */}
           </div>    
  
-      <Suspense fallback={<div>Loading Contact Us...</div>}>
+      <Suspense fallback={<span className="loading loading-dots loading-lg"></span>}>
         <ContactUs />
       </Suspense>
-      <Suspense fallback={<div>Loading Footer...</div>}>
+      <Suspense fallback={<span className="loading loading-dots loading-lg"></span>}>
         <Footer />
       </Suspense>
     </>

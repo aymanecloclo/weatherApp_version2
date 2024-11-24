@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import bgWeather from "../assets/images/bg-weatherDisplay.jpg";
 import { CiLocationOn } from "react-icons/ci";
-import ConnectivityStatus from './ConnectivityStatus';
 import speedIcon from '../assets/images/speed_wind.png';
 import CardCarousel from './CardCarousel';
 // Import des icônes
@@ -24,11 +23,12 @@ import Geocode from './Geocode.jsx';
 import WeatherWidget from './WeatherWidget.jsx';
 import WeatherMap from './WeatherMap.jsx';
 import SunShow from './SunShow.jsx';
+import ConnectivityStatus from '../components/ConnectivityStatus.jsx'
 const WeatherDisplay = ({ dataWeather }) => {
   if (!dataWeather) return <ConnectivityStatus />;
 
   const options = { month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true };
-  const currentDate = new Date();
+  const currentDate = new Date();3
   const formattedDate = currentDate.toLocaleString('en-US', options).replace(',', '');
 
   const { name, sys, main, wind, visibility, weather, clouds } = dataWeather;
@@ -93,20 +93,7 @@ const formattedSunset = sunsetDate.toLocaleTimeString('fr-FR', { timeZone: 'Afri
   let feelslike=Math.floor(Number(main?.feels_like));
   
  
-//   let styleComponent={
-//         // backgroundImage:`url(${sunny })`,
-//         background: rgb(111,198,153);
-// background: linear-gradient(0deg, rgba(111,198,153,1) 0%, rgba(67,157,235,1) 73%, rgba(71,115,224,1) 100%);
-//         // backgroundSize: 'cover',
-//         // backgroundPosition:'top',
-//         height: '100vh !important',
-//       }
-    //   const styleComponent = {
-    //     background: 'linear-gradient(0deg, rgba(111,198,153,1) 0%, rgba(67,157,235,1) 73%, rgba(71,115,224,1) 100%)',
-    //     height: '100vh', // Remove `!important`
-    //     width: '100%',   // Ajoutez cette ligne si vous voulez que le composant prenne toute la largeur
-    // };
-    
+
   return (
     <div
       className="flex pt-24 text-slate-50/85 font-extrabold px-0"

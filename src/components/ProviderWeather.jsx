@@ -29,7 +29,7 @@ const ProviderWeather = ({ children }) => {
       if (url) {
         const response = await fetch(url);
         const data = await response.json();
-        console.log('Fetched Data:', data);
+        
         setResult(data);
       } else {
         console.error('No valid parameters for weather data.');

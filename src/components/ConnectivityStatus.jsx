@@ -1,22 +1,24 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect, Suspense } from 'react';
 
-// Lazy loading of framer-motion to improve initial loading performance
+// ConnectivityStatus component to handle the connectivity status
 const ConnectivityStatus = () => {
   const [isOnline, setIsOnline] = useState(navigator.onLine);
 
   useEffect(() => {
-    // Optimize the event listeners to handle online/offline status
     const handleOnline = () => setIsOnline(true);
     const handleOffline = () => setIsOnline(false);
 
-    const idleCallback = requestIdleCallback(() => {
+    // Check if requestIdleCallback is available
+    const idleCallback = typeof requestIdleCallback === 'function' ? requestIdleCallback(() => {
       window.addEventListener('online', handleOnline);
       window.addEventListener('offline', handleOffline);
-    });
+    }) : null;
 
     return () => {
-      window.cancelIdleCallback(idleCallback);
+      if (idleCallback) {
+        window.cancelIdleCallback(idleCallback);
+      }
       window.removeEventListener('online', handleOnline);
       window.removeEventListener('offline', handleOffline);
     };
@@ -52,7 +54,7 @@ const ConnectivityStatus = () => {
   );
 };
 
-// Loader component
+// Loader component to show while waiting for ConnectivityStatus
 const Loader = () => (
   <motion.div
     className="flex justify-center items-center min-h-screen"
@@ -68,7 +70,7 @@ const Loader = () => (
   </motion.div>
 );
 
-// Using Suspense to defer the rendering of ConnectivityStatus with a loader
+// App component that uses Suspense to lazy load ConnectivityStatus
 const App = () => (
   <Suspense fallback={<Loader />}>
     <ConnectivityStatus />

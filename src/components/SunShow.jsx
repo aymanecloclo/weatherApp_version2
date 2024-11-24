@@ -1,5 +1,4 @@
  import React from 'react';
-
 const SunShow= ({ title = "Sunset", image, time }) => {
   return (
     <div
