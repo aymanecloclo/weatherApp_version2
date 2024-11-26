@@ -47,7 +47,7 @@ const SearchBox = () => {
 
   return (
     <div className='flex justify-center'>
-      <div className="fixed w-full lg:w-9/12 lg:top-[5%] bg-white min-screen z-50 flex flex-col rounded-lg h-screen lg:max-h-[80%]  border shadow-md">
+      <div className="fixed w-full lg:w-9/12 lg:top-[5%] bg-white min-screen flex flex-col rounded-lg h-screen lg:max-h-[80%]  border shadow-md z-50">
         <CloseBtn onChange={handleChange} />
         <h3 className='mt-12 mb-2 ms-5 font-medium lg:text-sm'>Rechercher votre prévision météo</h3>
         <Search handleInputChange={handleInputChange} city={city} />

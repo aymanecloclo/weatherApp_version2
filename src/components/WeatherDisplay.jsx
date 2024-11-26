@@ -97,11 +97,11 @@ const formattedSunset = sunsetDate.toLocaleTimeString('fr-FR', { timeZone: 'Afri
   return (
     <div
       className="flex pt-24 text-slate-50/85 font-extrabold px-0"
-      id="weatherBox mx-0 relative"
+      id="weatherBox  mx-0 relative"
       // style={styleComponent}
     >
       {/* Overlay for contrast */}
-      <div className="bg-black/5 absolute top-0 left-0 w-full h-48"></div>
+      <div id='home' className="bg-black/5 absolute top-0 left-0 w-full h-48"></div>
 
       <div className="z-20 w-full md:flex md:justify-center flex-col  m-0 p-0 ">
         <div className="flex sm:flex-row xs:flex-col my-2">

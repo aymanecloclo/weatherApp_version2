@@ -1,44 +1,66 @@
 import { useState } from "react";
   import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
+  import emailjs from 'emailjs-com'; // Make sure you import emailjs
 const ContactUs=()=>{
-    const [contact,setContact]=useState({
-        name:'',
-        email:'',
-        subject:'',
-        message:'',
+    const [contact, setContact] = useState({
+        name: '',
+        email: '',
+        subject: '',
+        message: '',
     });
-      const [erros,setError]=useState({});
-    
-     const ValidateFom=()=>{
-        if(!contact.name.trim()  || !contact.email.trim() ||  !contact.subject.trim() || !contact.message.trim() ){
+    const [success, setSuccess] = useState(false);
+    const [error, setError] = useState({});
+
+    const validateForm = () => {
+        if (!contact.name.trim() || !contact.email.trim() || !contact.subject.trim() || !contact.message.trim()) {
             toast.error('Veuillez remplir tous les champs.');
-        }else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact.email)){
-                 toast.error('Veuillez saisir une adresse email valide.');
-        }else{
-                 return true ;
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact.email)) {
+            toast.error('Veuillez saisir une adresse email valide.');
+        } else {
+            return true;
         }
-        
-
-     }
-
-
-    const handleChangeInput=(e)=>{
-        const {name , value}=e.target;
-        setContact({...contact,[name]:value});
     };
-       const handleSubmit= async (e)=>{
-          e.preventDefault();
-            if(ValidateFom()){
-                toast.success('Merci ! Votre message a bien été envoyé.');
-            }
-    }
-    console.log(contact);
+
+    const handleChangeInput = (e) => {
+        const { name, value } = e.target;
+        setContact({ ...contact, [name]: value });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault(); // Prevent default form submission
+
+        if (validateForm()) {
+            // Send email using emailjs
+            emailjs
+                .send(
+                    "service_i0welv9",   // Replace with your Service ID
+                    "template_9px3uig",   // Replace with your Template ID
+                    contact,              // Send contact form data
+                    "uxWKIwBThJlF-L6GU"  // Replace with your User ID (public key)
+                )
+                .then((result) => {
+                    console.log(result.text);
+                    toast.success('Merci ! Votre message a bien été envoyé.');
+                    setContact({
+                        name: '',
+                        email: '',
+                        subject: '',
+                        message: '',
+                    }); // Reset the form
+                    setSuccess(true);
+                })
+                .catch((error) => {
+                    console.error(error.text);
+                    toast.error('Une erreur s\'est produite lors de l\'envoi du message.');
+                });
+        }
+    };
    
     return(
         <>
-        <div className=" flex  p-5 justify-center ">
-        <div class=" px-20 bg-white rounded-3xl grid sm:grid-cols-2 items-start gap-16 p-4  md:pt-20 mx-auto  font-[sans-serif] lg:w-9/12  z-50 transition-transform duration-300 transform hover:scale-105 xl:w-8/12" >
+        <div  className=" flex  p-5 justify-center  ">
+        <div   id="contact" class=" px-20 bg-white rounded-3xl grid sm:grid-cols-2 items-start gap-16 p-4  md:pt-20 mx-auto  font-[sans-serif] lg:w-9/12   transition-transform duration-300 transform hover:scale-105 xl:w-8/12" >
             <div>
                 <h1 class="text-sky-400  text-3xl font-extrabold">Contact Us</h1>
                 <p class="text-sm text-gray-500 mt-4">Have some big idea or brand to develop and need help? Then reach out we'd love to hear about your project  and provide help.</p>

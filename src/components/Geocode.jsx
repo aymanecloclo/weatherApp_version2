@@ -37,7 +37,7 @@ const Geocode = () => {
     };
 
     return (
-        <div className=" h-full flex justify-center  py-10 md:pt-0 ">
+        <div id='cgraph' className=" h-full flex justify-center  py-10 md:pt-0 ">
             <div className="bg-white shadow-2xl md:h-[520px] rounded-3xl p-8 max-w-lg w-full transition-transform duration-300 transform hover:scale-105">
                 <h2 className="text-4xl font-extrabold text-center text-blue-800 mb-6">
                     Recherche de Géocodage
