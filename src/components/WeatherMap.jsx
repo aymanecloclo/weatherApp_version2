@@ -4,9 +4,9 @@ import 'leaflet/dist/leaflet.css';
 
 const WeatherMap = ({ city }) => {
     const mapRef = useRef(null);
-    const [mapInstance, setMapInstance] = useState(null);
     const [weatherData, setWeatherData] = useState(null);
     const apiKey = '7ab4338a56030b82d25ba8a78b578696'; // Remplacez par votre clé API
+    const mapInstanceRef = useRef(null); // Utilisation d'une ref pour la carte
 
     useEffect(() => {
         const fetchWeatherData = async () => {
@@ -18,8 +18,9 @@ const WeatherMap = ({ city }) => {
                 if (data.coord) {
                     const { lat, lon } = data.coord;
 
-                    // Vérifiez si la carte existe déjà
-                    if (!mapInstance) {
+                    // Vérifier si une carte existe déjà
+                    if (!mapInstanceRef.current) {
+                        // Initialiser la carte
                         const map = L.map(mapRef.current).setView([lat, lon], 10);
 
                         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -36,10 +37,12 @@ const WeatherMap = ({ city }) => {
                             Météo: ${data.weather[0].description}
                         `).openPopup();
 
-                        setMapInstance(map); // Stocker l'instance de la carte
+                        // Conserver l'instance de la carte dans la ref
+                        mapInstanceRef.current = map;
                     } else {
                         // Mettre à jour la vue de la carte existante
-                        mapInstance.setView([lat, lon], 10);
+                        mapInstanceRef.current.setView([lat, lon], 10);
+                        // Vous pouvez également ajouter une logique pour déplacer le marqueur ici si nécessaire
                     }
                 }
             } catch (error) {
@@ -49,11 +52,11 @@ const WeatherMap = ({ city }) => {
 
         fetchWeatherData();
 
-        // Nettoyage lorsque le composant est démonté
+        // Nettoyage lorsque le composant est démonté ou que la ville change
         return () => {
-            if (mapInstance) {
-                mapInstance.remove();
-                setMapInstance(null);
+            if (mapInstanceRef.current) {
+                mapInstanceRef.current.remove(); // Supprimer la carte existante
+                mapInstanceRef.current = null; // Réinitialiser la ref
             }
         };
     }, [city]); // Réexécute uniquement si la ville change
